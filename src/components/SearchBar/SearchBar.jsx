@@ -2,7 +2,9 @@
 
 function SearchBar() {
   return (
-    <div>SearchBar</div>
+    <div>
+      <input type="text" placeholder="Search data..." />
+    </div>
   )
 }
 
