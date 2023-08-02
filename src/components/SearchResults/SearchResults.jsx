@@ -1,16 +1,15 @@
 import React from "react";
+import Tracklist from "../Tracklist/Tracklist";
 
 const SearchResults = ({ data }) => {
+  console.log(data);
   return (
     <>
       <h1>Results</h1>
       <ul>
-        {data.map(({ id, name, artist, album }) => (
-          <li key={id}>
-            <h2>{name}</h2>
-            <h3>
-              {artist} | {album}
-            </h3>
+        {data.map((item) => (
+          <li key={item.id}>
+            <Tracklist item={item} />
           </li>
         ))}
       </ul>

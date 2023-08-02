@@ -2,8 +2,7 @@ import { useState } from "react";
 import dummyData from "./dummyData";
 import "./App.css";
 // import SearchBar from "./components/SearchBar/SearchBar";
-// import SearchResults from "./components/SearchResults/SearchResults";
-import Playlist from "./components/Playlist/Playlist";
+import SearchResults from "./components/SearchResults/SearchResults";
 
 function App() {
   ///setup dummy data as a placeholder
@@ -11,8 +10,8 @@ function App() {
   console.log(data);
   return (
     <>
-      {/* <SearchResults data={data} /> */}
-      <Playlist data={data} />
+      {/* <SearchBar data={data} /> */}
+      <SearchResults data={data} />
     </>
   );
 }
