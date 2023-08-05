@@ -1,11 +1,13 @@
 import React from "react";
 import Track from "../Track/Track";
-
-const Tracklist = ({ item }) => {
+const Tracklist = ({ searchList }) => {
+  console.log(searchList);
   return (
-    <>
-      <Track item={item} />
-    </>
+    <ul>
+      {searchList.map((list) => (
+        <Track list={list} />
+      ))}
+    </ul>
   );
 };
 

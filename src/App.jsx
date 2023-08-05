@@ -1,19 +1,20 @@
 import { useState } from "react";
 import dummyData from "./dummyData";
-import "./App.css";
-// import SearchBar from "./components/SearchBar/SearchBar";
+import SearchBar from "./components/SearchBar/SearchBar";
 import SearchResults from "./components/SearchResults/SearchResults";
+import Playlist from "./components/Playlist/Playlist";
+const App = () => {
+  const [searchList, setSearchList] = useState(dummyData);
 
-function App() {
-  ///setup dummy data as a placeholder
-  const [data, setData] = useState(dummyData);
-  console.log(data);
   return (
-    <>
-      {/* <SearchBar data={data} /> */}
-      <SearchResults data={data} />
-    </>
+    <div>
+      <SearchBar />
+      <div>
+        <SearchResults searchList={searchList} />
+        <Playlist />
+      </div>
+    </div>
   );
-}
+};
 
 export default App;

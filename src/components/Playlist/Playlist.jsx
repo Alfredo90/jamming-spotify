@@ -1,30 +1,11 @@
-import { useState } from "react";
+import React from "react";
 
-const Playlist = ({ data }) => {
-  // const [playlistName, setPlaylistName] = useState("");
-  const [playlistTrack, setPlaylistTrack] = useState(data);
-  // const [isEditing, setIsEditing] = useState(true);
-
-  // const submitChangedName = (e) => {
-  //   e.preventDefault();
-  // };
-  // const changePlaylistName = ({ target }) => {
-  //   setPlaylistName(target.value);
-  // };
-
+const Playlist = () => {
   return (
-    <>
-      <ul>
-        {playlistTrack.map(({ id, name, artist, album }) => (
-          <li key={id}>
-            <h2>{name}</h2>
-            <h3>
-              {artist} | {album}
-            </h3>
-          </li>
-        ))}
-      </ul>
-    </>
+    <div>
+      <input type="text" />
+      <button type="submit">Save to Spotify</button>
+    </div>
   );
 };
 

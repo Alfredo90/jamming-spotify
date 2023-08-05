@@ -1,24 +1,18 @@
-// import { useState } from "react";
+import React, { useState } from "react";
 
-// function SearchBar({ data }) {
-//   const [search, setSearch] = useState("");
+const SearchBar = () => {
+  const [searchTerm, setSearchTerm] = useState("");
 
-//   const handleSearch = ({ target }) => {
-//     setSearch(target.value);
-//   };
-//   return (
-//     <>
-//       <div>
-//         <input
-//           onChange={handleSearch}
-//           value={search}
-//           type="text"
-//           placeholder="Search data..."
-//         />
-//         <button>Search</button>
-//       </div>
-//     </>
-//   );
-// }
+  const searchHandle = ({ target }) => {
+    setSearchTerm(target.value);
+  };
+  return (
+    <>
+      <input onChange={searchHandle} value={searchTerm} type="text" />
+      {searchTerm}
+      <button type="submit">Search</button>
+    </>
+  );
+};
 
-// export default SearchBar;
+export default SearchBar;
