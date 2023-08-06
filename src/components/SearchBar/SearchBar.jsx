@@ -7,11 +7,11 @@ const SearchBar = () => {
     setSearchTerm(target.value);
   };
   return (
-    <>
+    <div className="flex justify-center items-center ">
       <input onChange={searchHandle} value={searchTerm} type="text" />
       {searchTerm}
       <button type="submit">Search</button>
-    </>
+    </div>
   );
 };
 
