@@ -1,11 +1,11 @@
 import React from "react";
 import Tracklist from "../Tracklist/Tracklist";
 
-const SearchResults = ({ searchList }) => {
-  console.log(searchList);
+const SearchResults = () => {
   return (
     <div className="border-2">
-      <Tracklist searchList={searchList} />
+      <h1>Results</h1>
+      <Tracklist />
     </div>
   );
 };

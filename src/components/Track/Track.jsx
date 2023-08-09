@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Data } from "../../App";
 
-const Track = ({ list: { id, album, artist, name } }) => {
+const Track = ({ track: { id, album, artist, name } }) => {
+  console.log(id);
+  const { addTrack } = useContext(Data);
+
+  const addOn = (id) => {
+    addTrack(id);
+  };
+
   return (
     <li className="flex justify-between items-center ">
       <span className="flex flex-col justify-center items-center">
@@ -9,7 +17,7 @@ const Track = ({ list: { id, album, artist, name } }) => {
           {artist} | {album}
         </h2>
       </span>
-      <button>+</button>
+      <button onClick={addOn}>+</button>
     </li>
   );
 };

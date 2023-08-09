@@ -3,12 +3,17 @@ import React, { useState } from "react";
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const searchHandle = ({ target }) => {
+  const searchHandler = ({ target }) => {
     setSearchTerm(target.value);
   };
   return (
     <div className="flex justify-center items-center ">
-      <input onChange={searchHandle} value={searchTerm} type="text" />
+      <input
+        placeholder="new playlist"
+        onChange={searchHandler}
+        value={searchTerm}
+        type="text"
+      />
       {searchTerm}
       <button type="submit">Search</button>
     </div>

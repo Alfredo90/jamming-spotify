@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Data } from "../../App";
 import Track from "../Track/Track";
-const Tracklist = ({ searchList }) => {
-  console.log(searchList);
+const Tracklist = () => {
+  const { searchTrackList, setSearchTrackList } = useContext(Data);
+  console.log(searchTrackList);
   return (
     <ul>
-      {searchList.map((list) => (
-        <Track key={list.id} list={list} />
+      {searchTrackList.map((track) => (
+        <Track key={track.id} track={track} />
       ))}
     </ul>
   );
