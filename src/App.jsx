@@ -11,22 +11,19 @@ const App = () => {
   const [searchTrackList, setSearchTrackList] = useState(dummyData);
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
-  // console.log(playlistTracks);
 
-  const addTrack = (track) => {
-    const isTrackAdded = playlistTracks.find((savedTrack) => {
-      savedTrack.id === track.id
-        ? console.log(setPlaylistTracks((prev) => [...prev, track]))
-        : playlistTracks;
-    });
-    console.log(isTrackAdded);
-    return isTrackAdded;
+  const addToPlaylist = (track) => {
+    const addTrack = searchTrackList.find(
+      (savedTrack) => savedTrack.id === track
+    );
+    setPlaylistTracks([...playlistTracks, addTrack]);
   };
-  console.log(addTrack(3));
 
   return (
-    <main className="border-2 flex flex-col justify-center items-center max-w-full max-h-full gap-10">
-      <Data.Provider value={{ searchTrackList, setSearchTrackList, addTrack }}>
+    <Data.Provider
+      value={{ searchTrackList, setSearchTrackList, addToPlaylist }}
+    >
+      <main className="border-2 flex flex-col justify-center items-center max-w-full max-h-full gap-10">
         <div className="border-2">
           <SearchBar />
         </div>
@@ -38,8 +35,8 @@ const App = () => {
             playlistTracks={playlistTracks}
           />
         </div>
-      </Data.Provider>
-    </main>
+      </main>
+    </Data.Provider>
   );
 };
 

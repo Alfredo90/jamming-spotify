@@ -3,7 +3,7 @@ import { Data } from "../../App";
 import Track from "../Track/Track";
 const Tracklist = () => {
   const { searchTrackList, setSearchTrackList } = useContext(Data);
-  console.log(searchTrackList);
+  // console.log(searchTrackList);
   return (
     <ul>
       {searchTrackList.map((track) => (
