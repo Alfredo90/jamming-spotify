@@ -2,7 +2,7 @@ import React from "react";
 // import PlaylistTrack from "../PlaylistTrack/PlaylistTrack";
 
 const Playlist = ({ playlistName, setPlaylistName, playlistTracks }) => {
-  // console.log(playlistName);
+  console.log(playlistTracks);
   const namePlaylistHandler = ({ target }) => {
     setPlaylistName(target.value);
   };
