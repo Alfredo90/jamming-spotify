@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { Data } from "../../App";
 
 const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const { searchTerm, setSearchTerm } = useContext(Data);
 
   const searchHandler = ({ target }) => {
     setSearchTerm(target.value);

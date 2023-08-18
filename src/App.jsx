@@ -9,26 +9,41 @@ export const Data = createContext();
 
 const App = () => {
   const [searchTrackList, setSearchTrackList] = useState(dummyData);
+  const [searchTerm, setSearchTerm] = useState("");
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
-  const addToPlaylist = (track) => {
-    const addTrack = searchTrackList.find(
-      (savedTrack) => savedTrack.id === track
-    );
-    setPlaylistTracks([...playlistTracks, addTrack]);
+  const addToPlaylist = (trackId) => {
+    searchTrackList.find((savedTrack) => {
+      if (savedTrack.id === trackId)
+        setPlaylistTracks([...playlistTracks, savedTrack]);
+    });
   };
 
+  const filtered = !searchTerm
+    ? searchTrackList
+    : searchTrackList.filter(
+        (track) =>
+          track.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          track.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          track.album.toLowerCase().includes(searchTerm.toLowerCase())
+      );
   return (
     <Data.Provider
-      value={{ searchTrackList, setSearchTrackList, addToPlaylist }}
+      value={{
+        searchTrackList,
+        setSearchTrackList,
+        addToPlaylist,
+        searchTerm,
+        setSearchTerm,
+      }}
     >
       <main className="border-2 flex flex-col justify-center items-center max-w-full max-h-full gap-10">
         <div className="border-2">
           <SearchBar />
         </div>
         <div className="  flex flex-row justify-center items-center gap-10 border-2">
-          <SearchResults />
+          <SearchResults filtered={filtered} />
           <Playlist
             playlistName={playlistName}
             setPlaylistName={setPlaylistName}
