@@ -1,11 +1,14 @@
 import React from "react";
 // import PlaylistTrack from "../PlaylistTrack/PlaylistTrack";
 
-const Playlist = ({ playlistName, setPlaylistName, playlistTracks }) => {
+const Playlist = ({
+  playlistName,
+  setPlaylistName,
+  playlistTracks,
+  handleRemoveTrack,
+}) => {
   // console.log(playlistTracks);
-  const namePlaylistHandler = ({ target }) => {
-    setPlaylistName(target.value);
-  };
+  const namePlaylistHandler = ({ target }) => setPlaylistName(target.value);
 
   return (
     <div className="flex flex-col gap-10 border-2">
@@ -20,7 +23,7 @@ const Playlist = ({ playlistName, setPlaylistName, playlistTracks }) => {
                 {track.artist} | {track.album}
               </h2>
             </span>
-            <button>-</button>
+            <button onClick={() => handleRemoveTrack(track.id)}>-</button>
           </li>
         ))}
       </ul>

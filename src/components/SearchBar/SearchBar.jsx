@@ -4,18 +4,16 @@ import { Data } from "../../App";
 const SearchBar = () => {
   const { searchTerm, setSearchTerm } = useContext(Data);
 
-  const searchHandler = ({ target }) => {
-    setSearchTerm(target.value);
-  };
+  const searchHandler = ({ target }) => setSearchTerm(target.value);
+
   return (
     <div className="flex justify-center items-center ">
       <input
-        placeholder="new playlist"
+        placeholder="...search"
         onChange={searchHandler}
         value={searchTerm}
         type="text"
       />
-      {searchTerm}
       <button type="submit">Search</button>
     </div>
   );

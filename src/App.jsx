@@ -20,6 +20,10 @@ const App = () => {
     });
   };
 
+  const handleRemoveTrack = (trackId) => {
+    setPlaylistTracks(playlistTracks.filter((track) => track.id !== trackId));
+  };
+
   const filtered = !searchTerm
     ? searchTrackList
     : searchTrackList.filter(
@@ -48,6 +52,7 @@ const App = () => {
             playlistName={playlistName}
             setPlaylistName={setPlaylistName}
             playlistTracks={playlistTracks}
+            handleRemoveTrack={handleRemoveTrack}
           />
         </div>
       </main>
