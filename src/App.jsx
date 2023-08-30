@@ -13,17 +13,6 @@ const App = () => {
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
-  const addToPlaylist = (trackId) => {
-    searchTrackList.find((savedTrack) => {
-      if (savedTrack.id === trackId)
-        setPlaylistTracks([...playlistTracks, savedTrack]);
-    });
-  };
-
-  const handleRemoveTrack = (trackId) => {
-    setPlaylistTracks(playlistTracks.filter((track) => track.id !== trackId));
-  };
-
   const filtered = !searchTerm
     ? searchTrackList
     : searchTrackList.filter(
@@ -37,9 +26,10 @@ const App = () => {
       value={{
         searchTrackList,
         setSearchTrackList,
-        addToPlaylist,
         searchTerm,
         setSearchTerm,
+        playlistTracks,
+        setPlaylistTracks,
       }}
     >
       <main className="border-2 flex flex-col justify-center items-center max-w-full max-h-full gap-10">
@@ -51,8 +41,6 @@ const App = () => {
           <Playlist
             playlistName={playlistName}
             setPlaylistName={setPlaylistName}
-            playlistTracks={playlistTracks}
-            handleRemoveTrack={handleRemoveTrack}
           />
         </div>
       </main>

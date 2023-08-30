@@ -2,8 +2,15 @@ import React, { useContext } from "react";
 import { Data } from "../../App";
 
 const Track = ({ track: { id, album, artist, name } }) => {
-  // console.log(id);
-  const { addToPlaylist } = useContext(Data);
+  const { searchTrackList, setPlaylistTracks, playlistTracks } =
+    useContext(Data);
+
+  const addToPlaylist = (id) => {
+    searchTrackList.find((savedTrack) => {
+      if (savedTrack.id === id)
+        setPlaylistTracks([...playlistTracks, savedTrack]);
+    });
+  };
 
   return (
     <li className="flex justify-between items-center ">
