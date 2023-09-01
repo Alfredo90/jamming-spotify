@@ -1,12 +1,4 @@
-import React, { useContext } from "react";
-import { Data } from "../../App";
-
-const PlaylistTrack = ({ track: { id, name, artist, album } }) => {
-  const { playlistTracks, setPlaylistTracks } = useContext(Data);
-
-  const handleRemoveTrack = (trackId) => {
-    setPlaylistTracks(playlistTracks.filter((track) => track.id !== trackId));
-  };
+const PlaylistTrack = ({ track: { id, name, artist, album }, removeTrack }) => {
   return (
     <li className="flex justify-between items-center ">
       <span className="flex flex-col justify-center items-center">
@@ -15,7 +7,7 @@ const PlaylistTrack = ({ track: { id, name, artist, album } }) => {
           {artist} | {album}
         </h2>
       </span>
-      <button onClick={() => handleRemoveTrack(id)}>-</button>
+      <button onClick={() => removeTrack(id)}>-</button>
     </li>
   );
 };
